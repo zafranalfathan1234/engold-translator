@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Engold Translator</title>
+</head>
+
+<body>
+
+<h2>Engold Translator</h2>
+
+<textarea id="input" rows="6" cols="50"></textarea>
+<br><br>
+
+<button onclick="latinToEngold()">Latin → Engold</button>
+<button onclick="engoldToLatin()">Engold → Latin</button>
+
+<p id="output"></p>
+
+<script>
+
+const engold = {
+a:"aɱ",
+b:"fɟu",
+c:"guɽ",
+d:"fɴa",
+e:"uŋ",
+f:"kɽâ",
+g:"kɸsâ",
+h:"ôn",
+i:"hʃsê",
+j:"ðe",
+k:"ʒfe",
+l:"rje",
+m:"mø",
+n:"ɔan",
+o:"fjre",
+p:"pra",
+q:"ôr",
+r:"râ",
+s:"mʒa",
+t:"dʒe",
+u:"uð",
+v:"ɖa",
+w:"wʃa",
+x:"æn",
+y:"wə",
+z:"wfrə"
+};
+
+function latinToEngold(){
+
+let text=document.getElementById("input").value.toLowerCase();
+let result="";
+
+for(let char of text){
+if(engold[char]){
+result+=engold[char];
+}else{
+result+=char;
+}
+}
+
+document.getElementById("output").innerText=result;
+
+}
+
+function engoldToLatin(){
+
+let text=document.getElementById("input").value;
+let result=text;
+
+for(let key in engold){
+let value=engold[key];
+result=result.split(value).join(key);
+}
+
+document.getElementById("output").innerText=result;
+
+}
+
+</script>
+
+</body>
+</html>
